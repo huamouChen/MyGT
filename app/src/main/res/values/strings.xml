@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">MyGT</string>
+    <string name="nav_back">返回</string>
+
 
     <string name="performance_tab">Performance</string>
     <string name="my_store_tab">My Store</string>
