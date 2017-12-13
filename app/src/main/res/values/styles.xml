@@ -8,4 +8,24 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--tab bar style-->
+    <style name="tabBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@android:color/transparent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawablePadding">2dp</item>
+        <item name="android:textColor">@color/cb_blue_text_selector</item>
+        <item name="android:background">@drawable/tab_main_selector</item>
+        <item name="layout_drawableSizePercent">6%h</item>
+        <item name="layout_textSizePercent">12%w</item>
+        <item name="layout_paddingBottomPercent">0.3%w</item>
+        <item name="layout_paddingTopPercent">1%w</item>
+        <item name="layout_marginLeftPercent">5%w</item>
+        <item name="layout_heightPercent">12.5%h</item>
+        <item name="layout_widthPercent">100%w</item>
+    </style>
+
+
 </resources>

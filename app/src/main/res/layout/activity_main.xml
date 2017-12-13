@@ -1,20 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.huamouchen.mygt.widgets.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     tools:context="com.example.huamouchen.mygt.MainActivity">
 
-    <TextView
+    <!--左边的 tab bar-->
+    <com.example.huamouchen.mygt.widgets.FlowRadioGroup
+        android:id="@+id/rg_tab"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:background="@color/main_color"
+        android:orientation="vertical"
+        app:layout_widthPercent="9%w">
+
+        <RadioButton
+            android:id="@+id/rb_performance"
+            style="@style/tabBar"
+            android:drawableTop="@drawable/tab_performance"
+            android:text="@string/performance_tab" />
+
+        <RadioButton
+            android:id="@+id/rb_my_store"
+            style="@style/tabBar"
+            android:drawableTop="@drawable/tab_my_store"
+            android:text="@string/my_store_tab" />
+
+        <RadioButton
+            android:id="@+id/rb_store_call"
+            style="@style/tabBar"
+            android:drawableTop="@drawable/tab_store_call"
+            android:text="@string/store_call_tab" />
+
+        <RadioButton
+            android:id="@+id/rb_posm"
+            style="@style/tabBar"
+            android:drawableTop="@drawable/tab_posm"
+            android:text="@string/posm_tab" />
+
+        <RadioButton
+            android:id="@+id/rb_selling_story"
+            style="@style/tabBar"
+            android:drawableTop="@drawable/tab_selling_story"
+            android:text="@string/selling_storey_tab" />
+
+        <RadioButton
+            android:id="@+id/rb_my_people"
+            style="@style/tabBar"
+            android:drawableTop="@drawable/tab_my_people"
+            android:text="@string/my_people_tab" />
+
+        <RadioButton
+            android:id="@+id/rb_memo"
+            style="@style/tabBar"
+            android:drawableTop="@drawable/tab_memo"
+            android:text="@string/memo_tab" />
+
+        <RadioButton
+            android:id="@+id/rb_other"
+            style="@style/tabBar"
+            android:drawableTop="@drawable/tab_others"
+            android:text="@string/other_tab" />
 
 
+    </com.example.huamouchen.mygt.widgets.FlowRadioGroup>
 
-</android.support.constraint.ConstraintLayout>
+    <com.example.huamouchen.mygt.widgets.PercentRelativeLayout
+        android:id="@+id/rl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</com.example.huamouchen.mygt.widgets.PercentLinearLayout>

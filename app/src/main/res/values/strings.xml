@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">MyGT</string>
+
+    <string name="performance_tab">Performance</string>
+    <string name="my_store_tab">My Store</string>
+    <string name="store_call_tab">Store Call</string>
+    <string name="posm_tab">POSM</string>
+    <string name="selling_storey_tab">Selling Story</string>
+    <string name="my_people_tab">My People</string>
+    <string name="memo_tab">Memo</string>
+    <string name="other_tab">Others</string>
+
 </resources>
