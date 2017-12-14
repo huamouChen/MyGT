@@ -9,13 +9,13 @@
     </style>
 
 
+    <!--appBar layout 去除阴影-->
     <style name="Widget.Design.AppBarLayout" parent="android:Widget">
         <item name="elevation">0dp</item>
         <item name="android:background">?attr/colorPrimary</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <!--tab bar style-->
@@ -31,7 +31,7 @@
         <item name="layout_drawableSizePercent">6%h</item>
         <item name="layout_textSizePercent">12%w</item>
         <item name="layout_paddingBottomPercent">0.3%w</item>
-        <item name="layout_paddingTopPercent">1%w</item>
+        <item name="layout_paddingTopPercent">5%w</item>
         <item name="layout_marginLeftPercent">5%w</item>
         <item name="layout_heightPercent">12.5%h</item>
         <item name="layout_widthPercent">100%w</item>
