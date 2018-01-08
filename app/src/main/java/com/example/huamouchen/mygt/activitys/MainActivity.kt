@@ -3,10 +3,17 @@ package com.example.huamouchen.mygt.activitys
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import com.example.huamouchen.mygt.R
-import com.example.huamouchen.mygt.fragments.*
+import com.example.huamouchen.mygt.fragments.memo.MemoFragment
+import com.example.huamouchen.mygt.fragments.my_people.MyPeopleFragment
 import com.example.huamouchen.mygt.fragments.my_store.MyStoreFragment
+import com.example.huamouchen.mygt.fragments.others.OthersFragment
+import com.example.huamouchen.mygt.fragments.performance.PerformanceFragment
+import com.example.huamouchen.mygt.fragments.posm.PosmFragment
+import com.example.huamouchen.mygt.fragments.selling_story.SellingStoryFragment
+import com.example.huamouchen.mygt.fragments.store_call.StoreCallFragment
 import com.example.huamouchen.mygt.widgets.FlowRadioGroup
 import com.example.huamouchen.mygt.widgets.PercentRelativeLayout
+import kotlinx.android.synthetic.main.fragment_performance.*
 import java.util.*
 
 class MainActivity : BaseActivity() {
@@ -79,6 +86,14 @@ class MainActivity : BaseActivity() {
     override fun onBackPressed() {
         when (rg.checkedRadioButtonId) {
             R.id.rb_performance -> {
+                if (performance.size <= 1) {
+//                    finish()
+                }
+                else {
+                    performance.pop();
+                    val fragment = performance.peek()
+                    displayFragment(fragment, false)
+                }
             }
             R.id.rb_my_store -> {
                 val fragment = my_store.get(my_store.size - 2)

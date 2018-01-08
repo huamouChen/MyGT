@@ -1,4 +1,4 @@
-package com.example.huamouchen.mygt.fragments
+package com.example.huamouchen.mygt.fragments.posm
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -10,9 +10,8 @@ import com.example.huamouchen.mygt.R
 /**
  * Created by huamouchen on 2017/12/13.
  */
-class OthersFragment : Fragment() {
-
+class PosmFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_others, null)
+        return inflater?.inflate(R.layout.fragment_posm, null)
     }
 }
