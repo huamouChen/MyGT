@@ -1,22 +1,18 @@
 package com.example.huamouchen.mygt.activitys
 
 
-import android.annotation.SuppressLint
+
 import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.AppBarLayout
-import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.FrameLayout
 import android.widget.RelativeLayout
-import butterknife.BindView
-import butterknife.ButterKnife
+import android.widget.TextView
 import com.example.huamouchen.mygt.R
-import com.example.huamouchen.mygt.utils.Constants
 
 /**
  * Created by huamouchen on 2017/12/13.
@@ -26,7 +22,6 @@ open class BaseActivity : AppCompatActivity() {
     lateinit var mContext: Context
     var appBar: AppBarLayout? = null
     var fl_main: FrameLayout? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,8 +45,9 @@ open class BaseActivity : AppCompatActivity() {
         var height = displayMetrics.heightPixels
         var toolBarHeight =  Math.round(height * 0.06).toInt()
         val layoutParams = Toolbar.LayoutParams(Toolbar.LayoutParams.MATCH_PARENT, toolBarHeight)
-
         toolBar.layoutParams = layoutParams
+        // 返回按钮 设置点击监听
+        toolBar.findViewById<TextView>(R.id.tv_left).setOnClickListener { onBackPressed() }
         appBar!!.addView(toolBar)
     }
 

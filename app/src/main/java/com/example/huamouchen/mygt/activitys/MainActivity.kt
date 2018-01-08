@@ -67,10 +67,55 @@ class MainActivity : BaseActivity() {
                 }
             }
 
-            displayFragmeng(showFragment, false)
+            displayFragment(showFragment, false)
         }
 
         rl_content = findViewById(R.id.rl_content)
+    }
+
+    /*
+    * 点击返回按钮
+    * */
+    override fun onBackPressed() {
+        when (rg.checkedRadioButtonId) {
+            R.id.rb_performance -> {
+            }
+            R.id.rb_my_store -> {
+                val fragment = my_store.get(my_store.size - 2)
+                displayFragment(fragment, false)
+                my_store.pop()
+            }
+
+        }
+    }
+
+    /*
+    * 隐藏 Fragment
+    * */
+    fun hideFragment() {
+        val fragment = when (rg.checkedRadioButtonId) {
+            R.id.rb_performance -> performance.pop()
+            R.id.rb_my_store -> my_store.pop()
+            R.id.rb_store_call -> store_call.pop()
+            R.id.rb_posm -> posm.pop()
+            R.id.rb_selling_story -> selling_story.pop()
+            R.id.rb_my_people -> my_people.pop()
+            R.id.rb_memo -> memo.pop()
+            R.id.rb_other -> other.pop()
+            else -> {
+                null
+            }
+        }
+
+        if (fragment == null) return
+
+        val fragmentManager = supportFragmentManager
+        val transaction = fragmentManager.beginTransaction()
+
+        transaction.hide(currentFragment).show(fragment)
+        transaction.commitAllowingStateLoss()
+        // 更新当前的fragment
+        currentFragment = fragment
     }
 
     /*
@@ -79,11 +124,24 @@ class MainActivity : BaseActivity() {
     * 2.如果有currentFragment，但是要显示的Fragment不一样，且是第一次添加，就走第一步，然后隐藏之前显示的Fragment
     * 3.如果有currentFragment，并且已经添加过了，就隐藏之前的Fragment，显示要显示的Fragment
     * */
-    fun displayFragmeng(fragment: Fragment?, isAddToStack: Boolean) {
+    fun displayFragment(fragment: Fragment?, isAddToStack: Boolean) {
         // fragment 为空，直接返回
         if (fragment == null) return
 
         // fragment 不为空的情况
+        if (isAddToStack) {
+            when (rg.checkedRadioButtonId) {
+                R.id.rb_performance -> performance.push(fragment)
+                R.id.rb_my_store -> my_store.push(fragment)
+                R.id.rb_store_call -> store_call.push(fragment)
+                R.id.rb_posm -> posm.push(fragment)
+                R.id.rb_selling_story -> selling_story.push(fragment)
+                R.id.rb_my_people -> my_people.push(fragment)
+                R.id.rb_memo -> memo.push(fragment)
+                R.id.rb_other -> other.push(fragment)
+            }
+        }
+
         val fragmentManager = supportFragmentManager
         val transaction = fragmentManager.beginTransaction()
 
@@ -101,89 +159,89 @@ class MainActivity : BaseActivity() {
     }
 
     private fun performanceClick(): Fragment {
-        val fragment: PerformanceFragment
+        val fragment: Fragment
         if (performance.empty()) { // 栈为空，新建Fragment
             fragment = PerformanceFragment()
             performance.push(fragment)
         } else { // 栈里面有Fragment，就从栈里面去
-            fragment = performance.last() as PerformanceFragment
+            fragment = performance.last()
         }
         return fragment
     }
 
     private fun my_storeChecked(): Fragment {
-        val fragment: MyStoreFragment
+        val fragment: Fragment
         if (my_store.empty()) {
             fragment = MyStoreFragment()
             my_store.push(fragment)
         } else {
-            fragment = my_store.last() as MyStoreFragment
+            fragment = my_store.last()
         }
         return fragment
     }
 
     private fun store_callChecked(): Fragment {
-        val fragment: StoreCallFragment
+        val fragment: Fragment
         if (store_call.empty()) {
             fragment = StoreCallFragment()
             store_call.push(fragment)
         } else {
-            fragment = store_call.last() as StoreCallFragment
+            fragment = store_call.last()
         }
         return fragment
     }
 
     private fun posmChecked(): Fragment {
-        val fragment: PosmFragment
+        val fragment: Fragment
         if (posm.empty()) {
             fragment = PosmFragment()
             posm.push(fragment)
         } else {
-            fragment = posm.last() as PosmFragment
+            fragment = posm.last()
         }
         return fragment
     }
 
     private fun selling_storyChecked(): Fragment {
-        val fragment: SellingStoryFragment
+        val fragment: Fragment
         if (selling_story.empty()) {
             fragment = SellingStoryFragment()
             selling_story.push(fragment)
         } else {
-            fragment = selling_story.last() as SellingStoryFragment
+            fragment = selling_story.last()
         }
         return fragment
     }
 
     private fun my_peopleChecked(): Fragment {
-        val fragment: MyPeopleFragment
+        val fragment: Fragment
         if (my_people.empty()) {
             fragment = MyPeopleFragment()
             my_people.push(fragment)
         } else {
-            fragment = my_people.last() as MyPeopleFragment
+            fragment = my_people.last()
         }
         return fragment
     }
 
     private fun memoChecked(): Fragment {
-        val fragment: MemoFragment
+        val fragment: Fragment
         if (memo.empty()) {
             fragment = MemoFragment()
             memo.push(fragment)
         } else {
-            fragment = memo.last() as MemoFragment
+            fragment = memo.last()
         }
         return fragment
     }
 
     private fun otherChecked(): Fragment {
-        val fragment: OthersFragment
+        val fragment: Fragment
         if (other.empty()) {
             fragment = OthersFragment()
             other.push(fragment)
         } else {
-            fragment = other.last() as OthersFragment
+            fragment = other.last()
         }
         return fragment
     }
